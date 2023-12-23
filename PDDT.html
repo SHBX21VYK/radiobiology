@@ -9,7 +9,7 @@
         <a href="PLS.html">CORRECTION FOR ERRORS</a>
         <a href="PDDT.html">TREATMENT PROTOCOL CHANGE CALCULATOR</a>
     </div>
-    <title>TREATMENT PROTOCOL CHANGE</title>
+    <title>Regimen Treatment Change</title>
    <link rel="icon" href="https://cdn.glitch.global/19cc86b7-95e9-4381-bd14-c6e50652f217/5936b03a-a274-4993-b2f6-49b898d74774.image.png?v=1702477153273"/>
     <link rel="stylesheet" href="PDDT.css">
     <h1 class="h1">
@@ -40,12 +40,9 @@
             </div>
             <br>
             <div>
-                <label for="alphaBetaRatio">Alpha/Beta Ratio (&alpha;/&beta;):</label>
-                <div class="input-group">
-                    <input type="range" class="r" id="alphaBetaRatio" min="1" max="16" step="0.1" value="1" oninput="updateSliderValue1()">
-                    <input type="text" class="o" id="alphaBetaValue" oninput="updateSliderFromInput1()">
-                </div>
-            </div>
+              <label for="alphaBetaRatio">Alpha/Beta Ratio (&alpha;/&beta;):</label>
+              <input class="o" type="number" id="alphaBetaRatio" step="0.1" min="1" max="16">
+          </div>
             <br>
             <button type="button" onclick="calculateValues(event)"><b>Calculate</b></button>
             <br>
@@ -56,7 +53,7 @@
         <form id="csdlForm">
             <div style="text-align: justify;">
                 <p><em>Disclaimer: This calculator is offered freely as a helpful tool. All outputs should be independently verified, and the user is solely responsible for the use of the calculator and any results. WE - GROUP 1 disclaims any warranties and is not responsible for how this tool is utilized or the results it provides.</em></p>
-                <h2><b>THE TREATMENT PROTOCOL CHANGE</b><br></h2>
+                <h2><b>THE TREATMENT REGIMEN CHANGE</b><br></h2>
                 <p>In using the LQ model, it is assumed that each fraction has an equal effect, thus for a fractionated regime (n fractions of size d):
 </p>
        <div style="text-align: center;">
@@ -366,23 +363,8 @@
     </div>
 
     <script>
-        function updateSliderValue1() {
-            var slider1 = document.getElementById('alphaBetaRatio');
-            var valueDisplay1 = document.getElementById('alphaBetaValue');
-            valueDisplay1.value = slider1.value;
-        }
-
-        function updateSliderFromInput1() {
-            var slider1 = document.getElementById('alphaBetaRatio');
-            var valueDisplay1 = document.getElementById('alphaBetaValue');
-
-            if (parseFloat(valueDisplay1.value) >= 1 && parseFloat(valueDisplay1.value) <= 16) {
-                slider1.value = valueDisplay1.value;
-            } else {
-                alert('The Alpha/Beta Ratio is over 1 and less than 16.');
-            }
-        }
-
+        
+      
         function displayMessage(message) {
             const resultContainer = document.getElementById('resultContainer');
             resultContainer.innerText = message;
@@ -400,7 +382,9 @@
             const n2 = parseFloat(document.getElementById('n2').value);
             const d2 = parseFloat(document.getElementById('d2').value);
             const alphaBetaRatio = parseFloat(document.getElementById('alphaBetaRatio').value);
-
+            
+            
+          
             if (
                 (isNaN(n1) && (isNaN(d1) || isNaN(n2) || isNaN(d2) || isNaN(alphaBetaRatio))) ||
                 (isNaN(d1) && (isNaN(n1) || isNaN(n2) || isNaN(d2) || isNaN(alphaBetaRatio))) ||
@@ -411,6 +395,11 @@
                 alert('Please provide other values');
                 return;
             }
+          
+            if (alphaBetaRatio < 1 || alphaBetaRatio > 16) {
+        alert('Alpha/Beta Ratio must be between 1 and 16.');
+        return;
+    }
 
             if (isNaN(n1)) {
                 const message = `n1: ${((n2 * d2 * (1 + d2 / alphaBetaRatio)) / (d1*( 1 + d1 / alphaBetaRatio))).toFixed(2)}`;
@@ -425,7 +414,7 @@
                 const message = `d2: ${((Math.sqrt((alphaBetaRatio*n1*d1)/n2*(1+d1/alphaBetaRatio)+(1/2 *alphaBetaRatio)^2)- (1/2 *alphaBetaRatio))).toFixed(2)}`;
                 displayMessage(message);
             } else if (isNaN(alphaBetaRatio)) {
-                const message = `Alpha/Beta Ratio: ${(n1 * d1 * (1 + d1 / alphaBetaRatio)) / (n2 * d2 * (1 + d2 / alphaBetaRatio)).toFixed(2)}`;
+                const message = `Alpha/Beta Ratio: ${(( (n2*(d2*d2)) - (n1*(d1*d1)) ) / ( (n1*d1) - (n2*d2) )).toFixed(2)}`;
                 displayMessage(message);
             }
         }
@@ -436,3 +425,4 @@
   </footer>
 </body>
 </html>
+
