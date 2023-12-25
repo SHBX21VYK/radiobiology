@@ -22,29 +22,29 @@
     <div class="form-container">
     <form id="doseForm">
       <div>
-        <label for="dp">Planned dosing (dp): </label>
+        <label for="dp">Planned dosing (d<sub>p</sub>): </label>
         <input class="o" type="number" step="0.01" min="0.01" required  id="dp">
       </div>
       <br>
       <div>
         <input type="radio" id="np" name="npDp" value="np" onclick="toggleInput('np')">
-        <label for="np">Fractions of planning (np)</label><br>
+        <label for="np">Fractions of planning (n<sub>p</sub>)</label><br>
         <input type="radio" id="Dp" name="npDp" value="Dp" onclick="toggleInput('Dp')">
-        <label for="Dp">The planned total dose (Dp)</label><br>
-        <label id="npDpLabel">Fractions of planning or The planned total dose (np or Dp): </label><input class="o" type="number" step="0.01" min="0.01" required  id="npDp"><br>
+        <label for="Dp">The planned total dose (D<sub>p</sub>)</label><br>
+        <label id="npDpLabel">Fractions of planning or The planned total dose (n<sub>p</sub> or D<sub>p</sub>): </label><input class="o" type="number" step="0.01" min="0.01" required  id="npDp"><br>
       </div>
       <br>
       <div>
-        <label for="de">Wrong dosing (de): </label>
+        <label for="de">Wrong dosing (d<sub>e</sub>): </label>
         <input class="o" type="number" step="0.01" min="0.01" required  id="de"> 
       </div>
       <br>
       <div>
         <input type="radio" id="ne" name="neDe" value="ne" onclick="toggleInput('ne')">
-        <label for="ne">Fractions Error (ne)</label><br>
+        <label for="ne">Fractions Error (n<sub>e</sub>)</label><br>
         <input type="radio" id="De" name="neDe" value="De" onclick="toggleInput('De')">
-        <label for="De">The dose given erroneously (De)</label><br>
-        <label id="neDeLabel">Fractions Error or The dose given erroneously (ne or De): </label><input class="o" type="number" step="0.01" min="0.01" required  id="neDe"><br>
+        <label for="De">The dose given erroneously (D<sub>e</sub>)</label><br>
+        <label id="neDeLabel">Fractions Error or The dose given erroneously (n<sub>e</sub> or D<sub>e</sub>): </label><input class="o" type="number" step="0.01" min="0.01" required  id="neDe"><br>
       </div>
     <br>
     <div>
@@ -65,14 +65,14 @@
       </p>
       <ul>
         <li> The planned total dose is:
-          Dp Gy at dp Gy/fraction </li>
+          D<sub>p</sub> Gy at d<sub>p</sub> Gy/fraction </li>
         <li> The dose given erroneously is:
-  De Gy at de Gy/fraction </li>
-        <li> The dose required to complete the course is: Dc Gy at dc Gy/fraction in Nc fractions
+  D<sub>e</sub> Gy at d<sub>e</sub> Gy/fraction </li>
+        <li> The dose required to complete the course is: D<sub>c</sub> Gy at d<sub>c</sub> Gy/fraction in N<sub>c</sub> fractions
         </li>
       </ul>
       <p>
-         Defining planned treatment as dp Gy per fraction to a total dose Dp Gy,suppose the initial error is de Gy per fraction given to a total of De Gy. Using the LQ model to describe all isoeffect relationships between total dose and dose per fraction for the tumour and the normal tissues, then the compensating dose per fraction of dc Gy to a total dose of Dc Gy are given by the simple formulae:
+         Defining planned treatment as d<sub>p</sub> Gy per fraction to a total dose D<sub>p</sub> Gy,suppose the initial error is d<sub>e</sub> Gy per fraction given to a total of D<sub>e</sub> Gy. Using the LQ model to describe all isoeffect relationships between total dose and dose per fraction for the tumour and the normal tissues, then the compensating dose per fraction of dc Gy to a total dose of D<sub>c</sub> Gy are given by the simple formulae:
       </p>
        <div style="text-align: center;">
         <math xmlns="http://www.w3.org/1998/Math/MathML">
@@ -387,7 +387,7 @@
         <mn>25</mn>
       </math>
       </div>
-      <p>Finally, we have the dose required to complete the course is dc=1,75 Gy ; nc= 25 fractions </p>  
+      <p>Finally, we have the dose required to complete the course is d<sub>c</sub>=1,75 Gy ; n<sub>c</sub>= 25 fractions </p>  
   </div></form>
   </div>
    <div id="result-notification1">
