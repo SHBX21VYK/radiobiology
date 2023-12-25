@@ -417,12 +417,12 @@ function toggleInput(value) {
           
           var dc, nc, dc1, nc1;
           
-          if (document.getElementById('np').checked && npDp < neDe) {
+          if (document.getElementById('np').checked && npDp*dp > neDe*de) {
             dc = (npDp * dp * dp - neDe * de * de) / (npDp * dp - neDe * de);
             nc = (npDp * dp - neDe * de) / dc;
             dc1 = dc.toFixed(2);
             nc1 = nc.toFixed(0);
-          } else if (document.getElementById('Dp').checked && npDp < neDe) {
+          } else if (document.getElementById('Dp').checked && npDp*dp > neDe*de) {
             dc = (npDp * dp - neDe * de) / (npDp - neDe);
             nc = (Dp - De)/dc;
             dc1 = dc.toFixed(2);
