@@ -394,21 +394,19 @@
       <p id="result1"></p>
       </div>
     <script>
-      function toggleInput(value) {
+function toggleInput(value) {
           if (value === 'np') {
             document.getElementById('ne').checked = true;
             document.getElementById('npDpLabel').innerText = 'Fractions of planning (Fractions): ';
+             document.getElementById('neDeLabel').innerText = 'Fractions Error (Fractions): ';
           } else if (value === 'Dp') {
             document.getElementById('De').checked = true;
             document.getElementById('npDpLabel').innerText = 'The planned total dose (Gy): ';
-          }
-          if (value === 'ne') {
-            document.getElementById('neDeLabel').innerText = 'Fractions Error (Fractions): ';
-          } else if (value === 'De') {
             document.getElementById('neDeLabel').innerText = 'The dose given erroneously (Gy): ';
+            
           }
-        }
-        
+         
+        }        
         function calculateValues(event) {
             
           
