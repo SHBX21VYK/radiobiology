@@ -402,16 +402,16 @@
     }
 
             if (isNaN(n1)) {
-                const message = `Number of Treatment Fractions 1 (n<sub>1</sub>): ${((n2 * d2 * (1 + d2 / alphaBetaRatio)) / (d1*( 1 + d1 / alphaBetaRatio))).toFixed(2)}`;
+                const message = `Number of Treatment Fractions 1: ${((n2 * d2 * (1 + d2 / alphaBetaRatio)) / (d1*( 1 + d1 / alphaBetaRatio))).toFixed(2)}`;
                 displayMessage(message);
             } else if (isNaN(d1)) {
-                const message = `Dose per Fraction in Gy 1 (d<sub>1</sub>): ${((Math.sqrt(alphaBetaRatio * ((n2*d2) / n1) * (1+d2/alphaBetaRatio) + (1/2 * alphaBetaRatio)*(1/2 * alphaBetaRatio)) - (1/2 * alphaBetaRatio))).toFixed(2)}`;
+                const message = `Dose per Fraction in Gy 1: ${((Math.sqrt(alphaBetaRatio * ((n2*d2) / n1) * (1+d2/alphaBetaRatio) + (1/2 * alphaBetaRatio)*(1/2 * alphaBetaRatio)) - (1/2 * alphaBetaRatio))).toFixed(2)}`;
                 displayMessage(message);
             } else if (isNaN(n2)) {
-                const message = `Number of Treatment Fractions 2 (n<sub>2</sub>): ${((n1 * d1 * (1 + d1 / alphaBetaRatio)) / (d2*(1 + d2 / alphaBetaRatio))).toFixed(2)}`;
+                const message = `Number of Treatment Fractions 2: ${((n1 * d1 * (1 + d1 / alphaBetaRatio)) / (d2*(1 + d2 / alphaBetaRatio))).toFixed(2)}`;
                 displayMessage(message);
             } else if (isNaN(d2)) {
-                const message = `Dose per Fraction in Gy 2 (d<sub>2</sub>): ${((Math.sqrt(alphaBetaRatio * ((n1*d1) / n2) * (1+d1/alphaBetaRatio) + (1/2 * alphaBetaRatio)*(1/2 * alphaBetaRatio)) - (1/2 * alphaBetaRatio))).toFixed(2)}`;
+                const message = `Dose per Fraction in Gy 2: ${((Math.sqrt(alphaBetaRatio * ((n1*d1) / n2) * (1+d1/alphaBetaRatio) + (1/2 * alphaBetaRatio)*(1/2 * alphaBetaRatio)) - (1/2 * alphaBetaRatio))).toFixed(2)}`;
                 displayMessage(message);
             } else if (isNaN(alphaBetaRatio)) {
                 const message = `Alpha/Beta Ratio: ${(( (n2*(d2*d2)) - (n1*(d1*d1)) ) / ( (n1*d1) - (n2*d2) )).toFixed(2)}`;
